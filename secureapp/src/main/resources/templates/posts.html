@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Posts</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<h2>All Posts</h2>
+<a href="/posts/create">Create New Post</a>
+<a href="/logout">Logout</a>
+
+<div th:each="post : ${posts}">
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+    <h3 th:text="${post.title}"></h3>
+    <p th:text="${post.content}"></p>
+    <small>By <span th:text="${post.username}"></span></small>
+    <hr>
+</div>
+</body>
+</html>
